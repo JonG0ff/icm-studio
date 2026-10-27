@@ -1,0 +1,2 @@
+# Sound Effects Mix - SFX Map Generator
+# No external dependencies beyond Python standard library

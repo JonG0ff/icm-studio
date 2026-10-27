@@ -1,0 +1,58 @@
+icm-studio
+Copyright (c) 2026 Marlo Labs. Released under the MIT License (see LICENSE).
+
+icm-studio by Marlo Labs. Built on ICM by Jake Van Clief.
+
+This project includes and builds on third-party work. Each keeps its own license.
+
+Interpretable Context Methodology (ICM), also called the Model Workspace Protocol
+  Author: Jake Van Clief and the Model Workspace Protocol contributors
+  License: MIT. Copyright (c) 2026 Model Workspace Protocol Contributors.
+  Use: icm-studio applies the principles from the ICM paper and repo.
+  Location: _core/history/icm/ (credit and the original license, unchanged)
+  Paper: https://arxiv.org/abs/2603.16021
+  Origin repo: https://github.com/RinDig/Content-Agent-Routing-Promptbase
+
+Copywriting skill (skills/ai-capabilities/sales-marketing/copywriting/)
+  Author: Alireza Rezvani
+  License: MIT. Copyright (c) 2025 Alireza Rezvani.
+  Source: https://github.com/alirezarezvani/claude-skills (revision 1851c8fb)
+  Notice and full license: the skill's NOTICE.md and LICENSE
+
+Motion graphic design skill (skills/ai-capabilities/design/motion-graphic-design/)
+  Author: iart.ai
+  License: MIT. Copyright (c) 2026 iart.ai.
+  Source: https://github.com/iart-ai/motion-design-skills (revision 3c129f76)
+  A short local adaptation. Notice and full license: the skill's NOTICE.md and LICENSE
+
+Voice generation and word timing skills
+(skills/workflows/video-production/elevenlabs-voice-generation/,
+ skills/workflows/video-production/word-timing/)
+  Adapted from workspaces/voice-driven-animation/ in the ICM repo.
+  License: MIT. Copyright (c) 2026 Model Workspace Protocol Contributors.
+  Source: https://github.com/RinDig/Interpretable-Context-Methodology
+
+open-edit (remotion/src/lib/upstream/open-edit/)
+  Copyright 2026 VEED LIMITED. License: Apache-2.0.
+  Source: https://github.com/veedstudio/open-edit (commit 1d3b75b7)
+  Notice and full license: that folder's NOTICE and LICENSE
+
+video-use (remotion/src/lib/upstream/video-use/, remotion/scripts/vendor/video-use/)
+  Copyright (c) 2026 Browser Use. License: MIT.
+  Source: https://github.com/browser-use/video-use (commit 43cfc566)
+  Full license: each folder's LICENSE
+
+Onda (remotion/src/components/motion-graphics/)
+  Copyright (c) 2026 Rodrigo Botelho. License: MIT.
+  Source: https://github.com/degueba/onda (revision 3c814051)
+  Selected modules adapted. Notice and license: NOTICE.md and LICENSE.onda
+
+Remotion framework and agent skills (used by remotion/, installed by npm and
+npx skills add remotion-dev/skills)
+  Not bundled here. Remotion is free for individuals and small teams. Larger
+  companies need a company license. Check https://www.remotion.dev/license
+  before you use it.
+
+Demo content
+  Acme Coffee Co. is a made-up brand. Any resemblance to a real business is
+  a coincidence.

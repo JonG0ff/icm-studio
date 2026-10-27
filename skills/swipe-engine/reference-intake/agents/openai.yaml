@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swipe Engine Reference Intake"
+  short_description: "Acquire and normalize marketing references"
+  default_prompt: "Use $reference-intake to save this reference into the Swipe Engine library."

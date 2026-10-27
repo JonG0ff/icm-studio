@@ -1,0 +1,96 @@
+{
+  "repository": "https://github.com/browser-use/video-use",
+  "commit": "43cfc566833548093455c9d4a46bd69913b7e552",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Browser Use",
+  "files": [
+    {
+      "original_path": "helpers/pack_transcripts.py",
+      "original_source_sha256": "f9e419def5f0a014d5e1fd16fdad801013ae068854c1d474c3492297e2304f4b",
+      "local_path": "pack_transcripts.py",
+      "local_sha256": "ba51f45b4f37b98e974fee42eed60eb05cfef68f60bf84166f60e6a1d995374d",
+      "license": "MIT",
+      "local_modifications": [
+        "Added explicit token-type, ordered finite source-timestamp, positive nonoverlapping spoken-word ranges, transcript-shape and threshold validation; never infer missing timings.",
+        "Renamed duration claims to speech span and explain full media duration is unknown.",
+        "Kept upstream phrase grouping and command structure; no provider import."
+      ],
+      "test_status": "11 local unittest regression/synthetic FFmpeg smoke cases passed; upstream helper-specific tests not found"
+    },
+    {
+      "original_path": "helpers/timeline_view.py",
+      "original_source_sha256": "69aee88e4204f86127740cca9de6a6eaa75a558df1bb07745dd62f69a3c2e9cf",
+      "local_path": "timeline_view.py",
+      "local_sha256": "b43cea70f4884221bccd739f054fbd1811149afc9a21de790bd8f066a60178c7",
+      "license": "MIT",
+      "local_modifications": [
+        "Added ffprobe input, media-duration, video/audio track and finite range validation.",
+        "Added explicit zero-based audio_track function/CLI option and ffmpeg stream maps.",
+        "Require 1–64 frames; sample bin centers so exclusive-end ranges do not seek to EOF.",
+        "Probe selected-range frame timestamps/durations with keyframe preroll; select the exact covering integer PTS with copyts, including the final frame after its PTS. Label actual source PTS without changing the requested range; repeat covering frames for narrow ranges and fail absent timing evidence.",
+        "Read probe and decode intervals one second past the range end (REORDER_MARGIN_S) so B-frame reordering cannot hide final in-range frames; selection stays by exact covering PTS.",
+        "Require validated explicit transcript word types and timestamps; missing explicit transcript fails.",
+        "Missing/empty/undecodable audio errors replace fabricated zero waveforms; true silent PCM remains zero.",
+        "Compute RMS over all decoded PCM rather than truncating final windows; label transcript gaps as unverified silence.",
+        "Retained explicit unsupported EDL rejection; no provider imports."
+      ],
+      "test_status": "11 local unittest regression/synthetic FFmpeg smoke cases passed, including one-second 30fps final-frame, one-frame/subframe, and 24000/1001 B-frame mid-file range-end checks; upstream helper-specific tests not found"
+    },
+    {
+      "original_path": "LICENSE",
+      "original_source_sha256": "5afa3d97bf1e6f998d587fa101e3fe0d0c416840b7fe77bcd6ae97690a334631",
+      "local_path": "LICENSE",
+      "local_sha256": "5afa3d97bf1e6f998d587fa101e3fe0d0c416840b7fe77bcd6ae97690a334631",
+      "license": "MIT",
+      "local_modifications": [],
+      "test_status": "byte-identical notice retained"
+    }
+  ],
+  "dependency_closure": {
+    "inspection": "Inspected all imports in the two selected upstream helpers; only standard library, numpy, PIL. Local timeline adds adjacent pack_transcripts validator and standard-library math, bisect and fractions. No provider/config/cache imports.",
+    "python_verified": "3.14.7",
+    "python_packages": {
+      "numpy": "2.4.6",
+      "Pillow": "12.2.0"
+    },
+    "external_commands": {
+      "ffmpeg": "8.1.1",
+      "ffprobe": "8.1.1"
+    },
+    "installation": "Used already-installed packages; no packages installed and no environment created. Fresh setup uses isolated /tmp venv per README.",
+    "hosted_credentials": "None"
+  },
+  "verification": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s remotion/scripts/vendor/video-use -v",
+    "status": "passed",
+    "tests_run": 10,
+    "synthetic_fixture": "Two-second 320x180 10fps video with silent audio track 0 and sine audio track 1; one-second 320x180 30fps MP4 with sine audio for final-frame, independent frame-29 byte comparison and one-frame/subframe range checks. All generated media and PNGs in TemporaryDirectory.",
+    "upstream_suite": "Not run; no tests referencing these helpers found under pinned upstream tests/.",
+    "not_verified": [
+      "Real source clip integration",
+      "Whisper/CMP cache bridge",
+      "Full render",
+      "Complete audiovisual playback QA",
+      "Other Python/package/FFmpeg versions"
+    ],
+    "retained_preview": {
+      "path": "/tmp/cmp-video-rebuild-timeline-smoke.png",
+      "scope": "Actual unmocked render of the same synthetic fixture with explicit transcript and audio track 1; retained for parent visual review, not playback QA."
+    }
+  },
+  "local_support_files": [
+    {
+      "path": "requirements.txt",
+      "sha256": "b24f588cfff78a25f2fd01fa2c779447214ffc55d7b7f773edc4492d6ffb4b03"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d9cde3396406722efaff42b0a249ab8540eefa3e99f92cb253c45d4734b58871"
+    },
+    {
+      "path": "test_helpers.py",
+      "sha256": "99a3225bfea6c4c18d9f95ae7ab752a3c863fe180283b43eaf4864389f5fbbd1"
+    }
+  ],
+  "update_policy": "Review source diff; update pin, patches and original/local hashes; rerun regression/smoke tests and real-clip integration before release. Retain prior pin for rollback."
+}

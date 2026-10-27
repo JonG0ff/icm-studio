@@ -1,0 +1,5 @@
+# Track document artifacts at any job depth; keep bulky outputs local.
+stages/*/output/**
+!stages/*/output/**/
+!stages/*/output/**/*.md
+!stages/*/output/**/.gitkeep

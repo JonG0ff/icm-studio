@@ -1,0 +1,55 @@
+# Marker the export tool writes into its staging folder.
+.icm-export
+
+# Environment files at any depth. Only placeholder examples are shareable.
+.env*
+!.env.example
+*.env
+*.env.*
+!*.env.example
+
+# Stage outputs: bulky assets stay local; Markdown handoffs are tracked.
+**/stages/*/output/*
+!**/stages/*/output/.gitkeep
+!**/stages/*/output/*.md
+_core/workspace-builder/stages/*/output/*
+!_core/workspace-builder/stages/*/output/.gitkeep
+
+# Media Library raw files. Git stores metadata, not raw media.
+libraries/media/local-media/**
+!libraries/media/local-media/
+!libraries/media/local-media/.gitkeep
+
+# Swipe assets: manifests are tracked; images and contact sheets stay local.
+libraries/swipes/knowledge-layer/assets/**/*.png
+libraries/swipes/knowledge-layer/assets/**/*.jpg
+libraries/swipes/knowledge-layer/assets/**/*.jpeg
+libraries/swipes/knowledge-layer/assets/**/*.webp
+libraries/swipes/knowledge-layer/assets/**/*.gif
+libraries/swipes/knowledge-layer/assets/**/*.pdf
+
+# Audio and video never go in Git.
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+
+# Dependencies, caches, OS files
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Credentials and browser sessions
+.secrets/
+secrets/
+credentials/
+cookies*.txt
+cookies*.json

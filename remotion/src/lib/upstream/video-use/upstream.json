@@ -1,0 +1,66 @@
+{
+  "repository": "https://github.com/browser-use/video-use",
+  "commit": "43cfc566833548093455c9d4a46bd69913b7e552",
+  "license": "MIT",
+  "imports": [
+    {
+      "original_file": "helpers/render.py",
+      "original_source_sha256": "6bbde45ad5929c7c94fa068996f81e0c44b55a9c9dedcf716fc24c071a5c8dd7",
+      "functions_or_sections": [
+        "chunk_words \u2192 chunkWords",
+        "CHUNK_WORDS",
+        "CHUNK_MAX_WORDS",
+        "CHUNK_MIN_S",
+        "CHUNK_PAUSE_S",
+        "PUNCT_BREAK"
+      ],
+      "local_file": "chunk-words.ts",
+      "local_sha256": "8a314dd38940c73e2954cdfa186b6c022b3f5fe05448d3f866d426e6796db580"
+    },
+    {
+      "original_file": "tests/test_render_captions.py",
+      "original_source_sha256": "a527dbd468e84727d2f0b419b9a56a0b18d391a0f6b5182aad2d1f77b767214e",
+      "functions_or_sections": [
+        "TAKE",
+        "ChunkWordsTests (six cases)"
+      ],
+      "local_file": "regression.test.mjs",
+      "local_sha256": "846b2e46a6d3fd9241c88cecae6a3f2a07151d8927685a7cd696288683b61f4a"
+    },
+    {
+      "original_file": "LICENSE",
+      "original_source_sha256": "5afa3d97bf1e6f998d587fa101e3fe0d0c416840b7fe77bcd6ae97690a334631",
+      "functions_or_sections": [],
+      "local_file": "LICENSE",
+      "local_sha256": "5afa3d97bf1e6f998d587fa101e3fe0d0c416840b7fe77bcd6ae97690a334631"
+    }
+  ],
+  "local_files_sha256": {
+    "LICENSE": "5afa3d97bf1e6f998d587fa101e3fe0d0c416840b7fe77bcd6ae97690a334631",
+    "README.md": "f9468ab5caca9302530fc41389f65cef855b7d398af2e8ac4574c6fffdf38a2b",
+    "chunk-words.ts": "8a314dd38940c73e2954cdfa186b6c022b3f5fe05448d3f866d426e6796db580",
+    "regression.test.mjs": "846b2e46a6d3fd9241c88cecae6a3f2a07151d8927685a7cd696288683b61f4a"
+  },
+  "local_changes": [
+    "Python-to-TypeScript generic grouping-only port; preserve original objects, exact raw text and IDs; omit upstream SRT transforms",
+    "Validate finite ordered nonnegative timings for nonblank words",
+    "Port six grouping fixtures and add two CMP cases"
+  ],
+  "dependency_closure": {
+    "runtime_external_dependencies": [],
+    "runtime_local_dependencies": [],
+    "tests": [
+      "Node built-in assert, fs, module, url, test",
+      "existing typescript 5.9.3 transpileModule to CommonJS (in memory)"
+    ],
+    "new_dependencies": []
+  },
+  "test_status": {
+    "adopted_regressions": "passed: 8 tests",
+    "command": "node --test src/lib/upstream/video-use/regression.test.mjs",
+    "typecheck": "passed: npm run typecheck from remotion/",
+    "scoped_lint": "passed: npx eslint src/lib/upstream/video-use src/lib/upstream/open-edit from remotion/",
+    "upstream_full_suites": "not run; only bounded adopted pure regressions",
+    "integration": "not connected; no compiler, PCM adapter, composition or render proof in this subset"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "repository": "https://github.com/veedstudio/open-edit",
+  "commit": "1d3b75b7f46280061bae5ab4cb47b9538276d8fb",
+  "license": "Apache-2.0",
+  "imports": [
+    {
+      "original_file": "cli/src/commands/speech-probe.ts",
+      "original_source_sha256": "8632461636767072e18087b81872e6ef3a4350c602e031f476d0d5dfcfa1b87d",
+      "functions_or_sections": [
+        "envelopeOf",
+        "percentile",
+        "analyse",
+        "Gap",
+        "ProbeResult",
+        "MIN_DYNAMIC_RANGE_DB"
+      ],
+      "local_file": "speech-probe.ts",
+      "local_sha256": "2c449d1265485d1583ee4b5a10342672557901393195f7e610c33cedb37dcaf9"
+    },
+    {
+      "original_file": "cli/src/edl.ts",
+      "original_source_sha256": "1af6f7265eb3752da143a0b4454d60313269ea4d55d3eea35a02d34600408a7a",
+      "functions_or_sections": [
+        "snapToFrames",
+        "EdlRange",
+        "SnappedRange"
+      ],
+      "local_file": "edl.ts",
+      "local_sha256": "6c8d77cbc6e9076319e8a366ace33689b3317bd3ffc7dcce16b5ec30e4789fec"
+    },
+    {
+      "original_file": "cli/tests/speech-probe.test.ts",
+      "original_source_sha256": "376c570434ab781eab8d939ac948fde32e17baa1f68567aff699ba7a2717e8d0",
+      "functions_or_sections": [
+        "pure analysis tests only; flat-signal expectation reconciled"
+      ],
+      "local_file": "regression.test.mjs",
+      "local_sha256": "0b816962331414409bf78dc3b390482398d4dbebf2d99683f1f536a2dd880b18"
+    },
+    {
+      "original_file": "cli/tests/edl.test.ts",
+      "original_source_sha256": "041f08d6ee05fd3943ec25ecb130be2656684fbb04ee7ecf0a38554ce3b9d69d",
+      "functions_or_sections": [
+        "two snapToFrames tests only"
+      ],
+      "local_file": "regression.test.mjs",
+      "local_sha256": "0b816962331414409bf78dc3b390482398d4dbebf2d99683f1f536a2dd880b18"
+    },
+    {
+      "original_file": "LICENSE",
+      "original_source_sha256": "cb12895952e6e689d90770e571f290acf517528c912511d8cf0c0d7ddd37cab2",
+      "functions_or_sections": [],
+      "local_file": "LICENSE",
+      "local_sha256": "cb12895952e6e689d90770e571f290acf517528c912511d8cf0c0d7ddd37cab2"
+    },
+    {
+      "original_file": "NOTICE",
+      "original_source_sha256": "ba78ac3fc2f2dc9d342016fc8efb7d46a9688c1c338c48c8628e3dfc95026c99",
+      "functions_or_sections": [],
+      "local_file": "NOTICE",
+      "local_sha256": "ba78ac3fc2f2dc9d342016fc8efb7d46a9688c1c338c48c8628e3dfc95026c99"
+    }
+  ],
+  "local_files_sha256": {
+    "LICENSE": "cb12895952e6e689d90770e571f290acf517528c912511d8cf0c0d7ddd37cab2",
+    "NOTICE": "ba78ac3fc2f2dc9d342016fc8efb7d46a9688c1c338c48c8628e3dfc95026c99",
+    "README.md": "d271dbfd7a44e93bbab20097c4c245d15d3079f297000bccec77cd9bcba74f7f",
+    "edl.ts": "6c8d77cbc6e9076319e8a366ace33689b3317bd3ffc7dcce16b5ec30e4789fec",
+    "regression.test.mjs": "0b816962331414409bf78dc3b390482398d4dbebf2d99683f1f536a2dd880b18",
+    "speech-probe.ts": "2c449d1265485d1583ee4b5a10342672557901393195f7e610c33cedb37dcaf9"
+  },
+  "local_changes": [
+    "Extract pure utilities/types only; omit CLI, decoding, provider and mapper dependencies",
+    "Add finite positive and nonnegative boundary validation; positive safe integer PCM windows prevent infinite loops",
+    "Equivalent reverse scan replaces findLastIndex for ES2015 lib compatibility",
+    "Document gaps as energy candidates; actual sample-window duration remains adapter responsibility",
+    "Reconcile upstream null-minus-zero flat-signal test to require null onset and speechFound false",
+    "Port pure analysis/frame tests and add finite-input and long-envelope checks"
+  ],
+  "dependency_closure": {
+    "runtime_external_dependencies": [],
+    "runtime_local_dependencies": [],
+    "tests": [
+      "Node built-in assert, fs, module, url, test",
+      "existing typescript 5.9.3 transpileModule to CommonJS (in memory)"
+    ],
+    "new_dependencies": []
+  },
+  "test_status": {
+    "adopted_regressions": "passed: 18 tests",
+    "command": "node --test src/lib/upstream/open-edit/regression.test.mjs",
+    "typecheck": "passed: npm run typecheck from remotion/",
+    "scoped_lint": "passed: npx eslint src/lib/upstream/video-use src/lib/upstream/open-edit from remotion/",
+    "upstream_full_suites": "not run; only bounded adopted pure regressions",
+    "integration": "not connected; no compiler, PCM adapter, composition or render proof in this subset"
+  }
+}

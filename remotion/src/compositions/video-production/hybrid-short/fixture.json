@@ -1,0 +1,31 @@
+{
+  "output": {"fps": 30, "width": 1080, "height": 1920, "durationInFrames": 180},
+  "sources": [{"id": "synthetic-source", "path": "assets/video-production/hybrid-short/synthetic-source.mp4", "fps": 24, "durationInFrames": 240, "kind": "synthetic"}],
+  "segments": [
+    {
+      "id": "story-first", "sourceId": "synthetic-source",
+      "sourceStartFrame": 24, "sourceEndFrame": 96,
+      "outputStartFrame": 0, "outputEndFrame": 90,
+      "framing": {"xPercent": 50, "yPercent": 45, "scale": 1},
+      "emphasis": "STORY FIRST.",
+      "card": {"title": "01 / SELECT THE MOMENT", "body": "One source. A clear sequence. Every cut stays traceable."}
+    },
+    {
+      "id": "preview-then-render", "sourceId": "synthetic-source",
+      "sourceStartFrame": 144, "sourceEndFrame": 216,
+      "outputStartFrame": 90, "outputEndFrame": 180,
+      "framing": {"xPercent": 55, "yPercent": 45, "scale": 1.08},
+      "emphasis": "MAKE IT VISIBLE.",
+      "card": {"title": "02 / PREVIEW THE EDIT", "body": "Footage, written emphasis, supporting cards, and phrase captions."}
+    }
+  ],
+  "captionTracks": [{
+    "sourceId": "synthetic-source", "provenance": "authored-synthetic-label",
+    "captions": [
+      {"text": "Plan the sequence.", "startMs": 1100, "endMs": 2500, "timestampMs": null, "confidence": null},
+      {"text": "Keep the source traceable.", "startMs": 2500, "endMs": 3900, "timestampMs": null, "confidence": null},
+      {"text": "Preview every visual beat.", "startMs": 6100, "endMs": 7500, "timestampMs": null, "confidence": null},
+      {"text": "Then render and review.", "startMs": 7500, "endMs": 8900, "timestampMs": null, "confidence": null}
+    ]
+  }]
+}

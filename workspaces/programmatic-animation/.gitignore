@@ -1,0 +1,37 @@
+# Brought files: Markdown is tracked, bulky media stays local.
+input/**
+!input/**/
+!input/**/*.md
+!input/.gitkeep
+
+# Per-run outputs: Markdown and JSON handoffs are tracked, media stays local.
+stages/*/*/output/**
+!stages/*/*/output/**/
+!stages/*/*/output/**/*.md
+!stages/*/*/output/**/*.json
+!stages/*/*/output/.gitkeep
+
+# JSON handoffs must never reopen root credential exclusions.
+.env*
+.en
+*.env
+*.env.*
+.secrets/
+secrets/
+credentials/
+.aws/
+.ssh/
+credentials*.json
+*serviceAccount*.json
+*service-account*.json
+*service_account*.json
+*firebase-adminsdk*.json
+client_secret*.json
+cookies*.json
+storage-state*.json
+storageState*.json
+*credential*export*
+*bitwarden*export*
+secrets.json
+secrets.yaml
+secrets.yml

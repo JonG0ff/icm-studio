@@ -1,0 +1,49 @@
+# Stage 01: Discovery
+
+Understand the domain workflow through conversation with the user.
+
+## Inputs
+
+| Source | File/Location | Section/Scope | Why |
+|--------|--------------|---------------|-----|
+| User | (conversation) | Full workflow description | The domain to build a workspace for |
+| Reference | `../../references/conventions-reference.md` | Full file | Know the MWP patterns to discover toward |
+| Reference | `../../references/examples/script-to-animation-summary.md` | Full file | Concrete example of a completed workspace |
+
+## Process
+
+1. Ask the user to describe their workflow end to end. What do they start with? What do they end with?
+2. Identify the distinct stages. Where does one task end and another begin? Look for natural handoff points where a human might want to review or edit before continuing.
+3. For each stage, ask:
+   - What goes in? (files, user input, previous stage output)
+   - What comes out? (the artifact this stage produces)
+   - What does the agent need to know? (reference material, rules, constraints)
+4. Identify shared context. What information is used across multiple stages? (brand voice, design system, audience data)
+5. Identify user-specific details. What varies from one user to another? (brand name, colors, audience, platform). These become placeholder variables.
+6. Identify optional stages. Are there stages some users might skip? These become conditional sections.
+7. Identify tool prerequisites. For each stage, ask: does this stage need any external tools to work? (e.g., Node.js, Python, LibreOffice, ffmpeg). For each tool, note: which stage needs it, whether it is required or optional, and what it does. These become setup guides in the generated workspace.
+8. Discover relevant skills. Search `skills/README.md` and `skills/registry.yml` first. If nothing matches, search installed skills or their official source repositories, import the selected skill once into the canonical root library, record its source and license, and reference it from the workspace.
+9. **[Checkpoint]** -- Present the workflow map draft to the user. Ask: Are all stages captured? Any missing inputs or outputs? Any stages to combine or split?
+10. Run the audit checks below. If any fail, revise before saving.
+11. Write the workflow map summarizing everything discovered.
+
+## Checkpoints
+
+| After Step | Agent Presents | Human Decides |
+|------------|---------------|---------------|
+| 8 | Draft workflow map: all stages with inputs/outputs, shared context, variables, tools, skills | Whether the stage breakdown, handoff points, and shared context are correct |
+
+## Audit
+
+| Check | Pass Condition |
+|-------|---------------|
+| Stage clarity | Every stage has a clear single responsibility and a named output artifact |
+| Input/output chain | Every stage's inputs are either user-provided or produced by a prior stage |
+| Shared context identified | Cross-stage resources (brand, design, audience) are listed separately from stage-specific references |
+| Variable coverage | Every user-specific detail is captured as a named placeholder variable |
+
+## Outputs
+
+| Artifact | Location | Format |
+|----------|----------|--------|
+| Workflow map | `output/workflow-map.md` | Structured doc: stages with inputs/outputs, shared context, user-specific variables, optional stages, tool prerequisites, selected skills |

@@ -1,0 +1,5 @@
+# Stage documents stay reviewable at any job depth. Bulky outputs stay local.
+stages/*/output/**
+!stages/*/output/**/
+!stages/*/output/**/*.md
+!stages/*/output/**/.gitkeep

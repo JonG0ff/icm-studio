@@ -1,0 +1,28 @@
+{
+  "upstream": "https://github.com/degueba/onda",
+  "revision": "3c814051269597b31fee1603bef7ccfb93d091b6",
+  "license": "MIT",
+  "reviewed": "2026-10-21",
+  "integration": "selected-source-adaptation",
+  "files": [
+    {
+      "path": "registry/components/mask-reveal/MaskReveal.tsx",
+      "blob": "593a2391f37f72da2b9bf79455e767aebf0f3d01"
+    },
+    {
+      "path": "registry/components/callout/Callout.tsx",
+      "blob": "2c8fb8d2e8d1fc683b607cbc430b068183df91c4"
+    },
+    {
+      "path": "lib/choreography.ts",
+      "blob": "e38ec44a12ce956b7ab5e44c8e38ce7f9fdc89e8"
+    },
+    {
+      "path": "lib/motion.ts",
+      "blob": "4fe89807386e2504bcd5a1ce333b5d3f39cc10f7"
+    }
+  ],
+  "local_adaptations": ["MaskReveal.tsx", "Callout.tsx", "motion.ts"],
+  "local_originals": ["ProcessDiagram.tsx"],
+  "update_policy": "Review pinned upstream diffs and local patches manually. No CLI overwrite or auto-updater."
+}
